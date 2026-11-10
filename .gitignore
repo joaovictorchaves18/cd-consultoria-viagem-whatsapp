@@ -1,0 +1,19 @@
+# Dependências e builds
+node_modules/
+.next/
+out/
+dist/
+
+# Variáveis de ambiente e credenciais locais
+.env
+.env.*
+!.env.example
+
+# Sessão local do WhatsApp (Baileys) e binários de túnel
+.baileys_auth/
+cloudflared.exe
+
+# Logs e arquivos de sistema
+*.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Atendimento {
+  id              String   @id @default(uuid())
+  telefone        String   @unique
+  nome            String?
+  status          String   @default("AGUARDANDO") // Valores permitidos: AGUARDANDO, EM_PROCESSO, ATENDIDO, CANCELADO
+  etapaBot        String   @default("EM_TRIAGEM") // EM_TRIAGEM, FINALIZADO_BOT
+  resumoViagem    Json?    // Guarda o JSON extraído pela IA (5 campos da CD Consultoria)
+  historico       Json?    // Janela deslizante de contexto
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model AdminUser {
+  id              String   @id @default(uuid())
+  nome            String
+  usuario         String   @unique
+  senhaHash       String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
