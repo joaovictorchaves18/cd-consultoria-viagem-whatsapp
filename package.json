@@ -4,6 +4,7 @@
   "private": true,
   "description": "Sistema Completo de Atendimento WhatsApp (Meta Cloud API + OpenAI Function Calling) e Dashboard de Transbordo em Next.js",
   "scripts": {
+    "postinstall": "prisma generate",
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
